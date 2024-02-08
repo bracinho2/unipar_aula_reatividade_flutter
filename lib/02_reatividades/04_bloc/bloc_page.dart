@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:unipar_aula_reatividade_flutter/02_reatividades/04_bloc/bloc_flutter.dart';
-import 'package:unipar_aula_reatividade_flutter/02_reatividades/04_bloc/events.dart';
+import 'package:unipar_aula_reatividade_flutter/02_reatividades/04_bloc/bloc_events.dart';
 
 class ReatividadeBlocPage extends StatefulWidget {
   const ReatividadeBlocPage({
@@ -39,31 +39,33 @@ class _ReatividadeBlocPageState extends State<ReatividadeBlocPage> {
         title: Text(widget.title),
       ),
       body: BlocConsumer<CounterBloc, int>(
-          listener: (context, state) {
-            log(state.toString());
-          },
-          bloc: bloc,
-          builder: (context, state) {
-            return Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    'You have pushed the button this many times:',
-                  ),
-                  Text(
-                    state.toString(),
-                    style: Theme.of(context).textTheme.headlineMedium,
-                  ),
-                ],
-              ),
-            );
-          }),
+        listener: (context, state) {
+          // AQUI VOCÊ PODE ESCUTAR OUTRO BLOC! =)
+          log(state.toString());
+        },
+        bloc: bloc,
+        builder: (context, state) {
+          return Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  'You have pushed the button this many times:',
+                ),
+                Text(
+                  state.toString(),
+                  style: Theme.of(context).textTheme.headlineMedium,
+                ),
+              ],
+            ),
+          );
+        },
+      ),
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           FloatingActionButton(
-            onPressed: () => bloc.add(IncrementCounter()),
+            onPressed: () => bloc.add(CounterIncrementPressed()),
             heroTag: 'bloc-button_increment',
             child: const Icon(Icons.add),
           ),
@@ -71,7 +73,7 @@ class _ReatividadeBlocPageState extends State<ReatividadeBlocPage> {
             height: 20,
           ),
           FloatingActionButton(
-            onPressed: () => bloc.add(DecrementCounter()),
+            onPressed: () => bloc.add(CounterDecrementPressed()),
             heroTag: 'bloc-button_decrement',
             child: const Icon(Icons.remove),
           ),

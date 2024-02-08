@@ -1,10 +1,10 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:unipar_aula_reatividade_flutter/02_reatividades/04_bloc/events.dart';
+import 'package:unipar_aula_reatividade_flutter/02_reatividades/04_bloc/bloc_events.dart';
 
 class CounterBloc extends Bloc<CounterEvent, int> {
   CounterBloc() : super(0) {
-    on<IncrementCounter>(_increment);
-    on<DecrementCounter>(_decrement);
+    on<CounterIncrementPressed>(_increment);
+    on<CounterDecrementPressed>(_decrement);
   }
 
   Future<void> _increment(
