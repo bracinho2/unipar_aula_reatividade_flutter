@@ -13,7 +13,7 @@ class ReatividadeOffPage extends StatefulWidget {
 }
 
 class _ReatividadeOffPageState extends State<ReatividadeOffPage> {
-  int _counter = 0;
+  final int _counter = 0;
 
   void _incrementCounter() {
     // setState(() {

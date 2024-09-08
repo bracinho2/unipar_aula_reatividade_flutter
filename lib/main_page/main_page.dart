@@ -7,6 +7,7 @@ import 'package:unipar_aula_reatividade_flutter/03_reatividade_com_state_pattern
 
 import '../02_reatividades/01_set_state/reatividade_set_state_page.dart';
 import '../02_reatividades/03_value_notifier/reatividade_value_notifier_page.dart';
+import '../flutter_cart_example/flutter_cart_example.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -84,9 +85,7 @@ class _MainPageState extends State<MainPage> {
               onPressed: () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const ReatividadeBlocPage(
-                    title: 'Reatividade com Bloc',
-                  ),
+                  builder: (context) => const BlocPage(),
                 ),
               ),
               child: const Text(
@@ -97,9 +96,7 @@ class _MainPageState extends State<MainPage> {
               onPressed: () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const ReatividadeCubitPage(
-                    title: 'Reatividade com Cubit',
-                  ),
+                  builder: (context) => const CubitPage(),
                 ),
               ),
               child: const Text(
@@ -117,6 +114,17 @@ class _MainPageState extends State<MainPage> {
               ),
               child: const Text(
                 'Reatividade com State Pattern',
+              ),
+            ),
+            TextButton(
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => const FlutterCartExample(),
+                ),
+              ),
+              child: const Text(
+                'Flutter Cart Example',
               ),
             ),
           ],

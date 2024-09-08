@@ -5,6 +5,27 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:unipar_aula_reatividade_flutter/02_reatividades/04_bloc/bloc_flutter.dart';
 import 'package:unipar_aula_reatividade_flutter/02_reatividades/04_bloc/bloc_events.dart';
 
+class BlocPage extends StatefulWidget {
+  const BlocPage({
+    super.key,
+  });
+
+  @override
+  State<BlocPage> createState() => _BlocPageState();
+}
+
+class _BlocPageState extends State<BlocPage> {
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => CounterBloc(),
+      child: const ReatividadeBlocPage(
+        title: 'Reatividade com Bloc',
+      ),
+    );
+  }
+}
+
 class ReatividadeBlocPage extends StatefulWidget {
   const ReatividadeBlocPage({
     super.key,
@@ -18,32 +39,30 @@ class ReatividadeBlocPage extends StatefulWidget {
 }
 
 class _ReatividadeBlocPageState extends State<ReatividadeBlocPage> {
-  late final CounterBloc bloc;
-
   @override
   void initState() {
     super.initState();
-    bloc = CounterBloc();
   }
 
   @override
   void dispose() {
-    bloc.close();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    final bloc = context.read<CounterBloc>();
+
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
       body: BlocConsumer<CounterBloc, int>(
         listener: (context, state) {
-          // AQUI VOCÊ PODE ESCUTAR OUTRO BLOC! =)
+          // Aqui você pode tomar uma ação baseada na mudança do Counter;
           log(state.toString());
         },
-        bloc: bloc,
+        buildWhen: (previous, current) => previous != current,
         builder: (context, state) {
           return Center(
             child: Column(

@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
       create: (context) => CounterBloc(),
       lazy: true,
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
           useMaterial3: true,
