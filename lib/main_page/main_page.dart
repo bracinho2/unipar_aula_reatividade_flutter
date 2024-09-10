@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:unipar_aula_reatividade_flutter/02_reatividades/04_bloc/bloc_page.dart';
-import 'package:unipar_aula_reatividade_flutter/02_reatividades/02_change_notifier/reatividade_change_notifier_page.dart';
-import 'package:unipar_aula_reatividade_flutter/02_reatividades/05_cubit/cubit_page.dart';
-import 'package:unipar_aula_reatividade_flutter/01_sem_reatividade/reatividade_off_page.dart';
-import 'package:unipar_aula_reatividade_flutter/03_reatividade_com_state_pattern/reatividade_state_pattern_page.dart';
+import 'package:unipar_aula_reatividade_flutter/01_ephemeral_app_state/app_state.dart';
 
-import '../02_reatividades/01_set_state/reatividade_set_state_page.dart';
-import '../02_reatividades/03_value_notifier/reatividade_value_notifier_page.dart';
-import '../flutter_cart_example/flutter_cart_example.dart';
+import 'package:unipar_aula_reatividade_flutter/03_reatividades_nativas/02_change_notifier/reatividade_change_notifier_page.dart';
+
+import 'package:unipar_aula_reatividade_flutter/02_sem_reatividade/reatividade_off_page.dart';
+import 'package:unipar_aula_reatividade_flutter/05_reatividade_com_state_pattern/reatividade_state_pattern_page.dart';
+
+import '../03_reatividades_nativas/01_set_state/reatividade_set_state_page.dart';
+import '../03_reatividades_nativas/03_value_notifier/reatividade_value_notifier_page.dart';
+import '../06_flutter_cart_example/flutter_cart_example.dart';
+import '../04_reatividades_com_pacote/bloc/bloc_page.dart';
+import '../04_reatividades_com_pacote/cubit/cubit_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -29,6 +32,17 @@ class _MainPageState extends State<MainPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            TextButton(
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => const AppState(),
+                ),
+              ),
+              child: const Text(
+                'AppState & Ephemeral State',
+              ),
+            ),
             TextButton(
               onPressed: () => Navigator.push(
                 context,

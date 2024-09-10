@@ -2,32 +2,33 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:unipar_aula_reatividade_flutter/02_reatividades/04_bloc/bloc_flutter.dart';
-import 'package:unipar_aula_reatividade_flutter/02_reatividades/04_bloc/bloc_events.dart';
 
-class BlocPage extends StatefulWidget {
-  const BlocPage({
+import 'cubit.dart';
+ 
+
+class CubitPage extends StatefulWidget {
+  const CubitPage({
     super.key,
   });
 
   @override
-  State<BlocPage> createState() => _BlocPageState();
+  State<CubitPage> createState() => _CubitPageState();
 }
 
-class _BlocPageState extends State<BlocPage> {
+class _CubitPageState extends State<CubitPage> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => CounterBloc(),
-      child: const ReatividadeBlocPage(
-        title: 'Reatividade com Bloc',
+      create: (context) => CounterCubit(),
+      child: const ReatividadeCubitPage(
+        title: 'Reatividade com Cubit',
       ),
     );
   }
 }
 
-class ReatividadeBlocPage extends StatefulWidget {
-  const ReatividadeBlocPage({
+class ReatividadeCubitPage extends StatefulWidget {
+  const ReatividadeCubitPage({
     super.key,
     required this.title,
   });
@@ -35,10 +36,10 @@ class ReatividadeBlocPage extends StatefulWidget {
   final String title;
 
   @override
-  State<ReatividadeBlocPage> createState() => _ReatividadeBlocPageState();
+  State<ReatividadeCubitPage> createState() => _ReatividadeCubitPageState();
 }
 
-class _ReatividadeBlocPageState extends State<ReatividadeBlocPage> {
+class _ReatividadeCubitPageState extends State<ReatividadeCubitPage> {
   @override
   void initState() {
     super.initState();
@@ -51,18 +52,15 @@ class _ReatividadeBlocPageState extends State<ReatividadeBlocPage> {
 
   @override
   Widget build(BuildContext context) {
-    final bloc = context.read<CounterBloc>();
-
+    final cubit = context.read<CounterCubit>();
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: BlocConsumer<CounterBloc, int>(
+      body: BlocConsumer<CounterCubit, int>(
         listener: (context, state) {
-          // Aqui você pode tomar uma ação baseada na mudança do Counter;
           log(state.toString());
         },
-        buildWhen: (previous, current) => previous != current,
         builder: (context, state) {
           return Center(
             child: Column(
@@ -84,7 +82,7 @@ class _ReatividadeBlocPageState extends State<ReatividadeBlocPage> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           FloatingActionButton(
-            onPressed: () => bloc.add(CounterIncrementPressed()),
+            onPressed: () => cubit.increment(),
             heroTag: 'bloc-button_increment',
             child: const Icon(Icons.add),
           ),
@@ -92,7 +90,7 @@ class _ReatividadeBlocPageState extends State<ReatividadeBlocPage> {
             height: 20,
           ),
           FloatingActionButton(
-            onPressed: () => bloc.add(CounterDecrementPressed()),
+            onPressed: () => cubit.decrement(),
             heroTag: 'bloc-button_decrement',
             child: const Icon(Icons.remove),
           ),

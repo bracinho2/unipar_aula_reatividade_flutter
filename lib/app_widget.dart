@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:unipar_aula_reatividade_flutter/02_reatividades/04_bloc/bloc_flutter.dart';
+ 
 
 import 'main_page/main_page.dart';
+import '04_reatividades_com_pacote/bloc/bloc_flutter.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

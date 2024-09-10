@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:unipar_aula_reatividade_flutter/03_reatividade_com_state_pattern/counter_state_pattern.dart';
+import 'package:unipar_aula_reatividade_flutter/05_reatividade_com_state_pattern/counter_state_pattern.dart';
 
 class ReatividadeStatePatternController extends ValueNotifier<CounterState> {
   ReatividadeStatePatternController() : super(ShowCounter(value: 0));

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:unipar_aula_reatividade_flutter/flutter_cart_example/cart_model.dart';
+import 'package:unipar_aula_reatividade_flutter/06_flutter_cart_example/cart_model.dart';
 
 class MyCart extends StatefulWidget {
   const MyCart({

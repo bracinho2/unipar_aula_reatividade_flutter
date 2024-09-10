@@ -6,7 +6,7 @@ class AppBlocObserver extends BlocObserver {
   @override
   void onCreate(BlocBase bloc) {
     super.onCreate(bloc);
-    print('onCreate -- ${bloc.runtimeType}');
+    log('onCreate -- ${bloc.runtimeType}');
   }
 
   @override

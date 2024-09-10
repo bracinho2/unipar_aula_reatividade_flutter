@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:unipar_aula_reatividade_flutter/02_reatividades/03_value_notifier/reatividade_value_notifier_controller.dart';
+import 'package:unipar_aula_reatividade_flutter/03_reatividades_nativas/03_value_notifier/reatividade_value_notifier_controller.dart';
 
 class ReatividadeValueNotifierPage extends StatefulWidget {
   const ReatividadeValueNotifierPage({
