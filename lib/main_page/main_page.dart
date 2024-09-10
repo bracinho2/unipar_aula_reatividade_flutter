@@ -56,6 +56,10 @@ class _MainPageState extends State<MainPage> {
                 'Sem Reatividade',
               ),
             ),
+            const SizedBox(
+              height: 20,
+            ),
+            const Text('Reatividades Nativas'),
             TextButton(
               onPressed: () => Navigator.push(
                 context,
@@ -95,6 +99,10 @@ class _MainPageState extends State<MainPage> {
                 'Reatividade com ValueNotifier',
               ),
             ),
+            const SizedBox(
+              height: 20,
+            ),
+            const Text('Reatividades com Pacote'),
             TextButton(
               onPressed: () => Navigator.push(
                 context,
@@ -117,6 +125,10 @@ class _MainPageState extends State<MainPage> {
                 'Reatividade com Cubit',
               ),
             ),
+            const SizedBox(
+              height: 20,
+            ),
+            const Text('Reatividade com StatePattern'),
             TextButton(
               onPressed: () => Navigator.push(
                 context,
@@ -130,6 +142,10 @@ class _MainPageState extends State<MainPage> {
                 'Reatividade com State Pattern',
               ),
             ),
+            const SizedBox(
+              height: 20,
+            ),
+            const Text('Example'),
             TextButton(
               onPressed: () => Navigator.push(
                 context,
