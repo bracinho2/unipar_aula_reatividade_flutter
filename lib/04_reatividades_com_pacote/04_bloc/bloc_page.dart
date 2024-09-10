@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../bloc/bloc_events.dart';
-import 'bloc_flutter.dart';
+import '../bloc/bloc_flutter.dart';
 
 class BlocPage extends StatefulWidget {
   const BlocPage({
